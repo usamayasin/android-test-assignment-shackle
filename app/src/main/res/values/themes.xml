@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.ShackleHotelBuddy" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.ShackleHotelBuddy" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+
+    </style>
+
+    <style name="buttonStyle">
+        <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@color/teal</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">20dp</item>
+    </style>
+
+
 </resources>

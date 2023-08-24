@@ -1,0 +1,297 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.shacklehotelbuddy.ui.home.HomeViewModel" />
+    </data>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rootView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background"
+            android:padding="@dimen/padding_1x">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/headerGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.15" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/cardEndGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.52" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/cardRecentSearchEndGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.63" />
+
+            <TextView
+                android:id="@+id/tvHeaderTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/header_text"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_8x"
+                app:layout_constraintBottom_toTopOf="@id/card_filter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headerGuideline" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_filter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="@dimen/radius_1x"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toTopOf="@id/cardEndGuideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvHeaderTitle">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/center_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                    <View
+                        android:id="@+id/centerDivider"
+                        android:layout_width="0.5dp"
+                        android:layout_height="0dp"
+                        android:background="@color/color_text"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/center_guideline"
+                        app:layout_constraintStart_toEndOf="@id/center_guideline"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvCheckInDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/event_upcoming"
+                        android:drawablePadding="@dimen/padding_1x"
+                        android:padding="@dimen/padding_2x"
+                        android:text="@string/check_in_date"
+                        android:textColor="@color/color_text"
+                        app:layout_constraintBottom_toTopOf="@id/firstDivider"
+                        app:layout_constraintEnd_toStartOf="@id/centerDivider"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/firstDivider"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/color_text"
+                        app:layout_constraintBottom_toTopOf="@id/tvCheckOutDate"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCheckInDate" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/btnCheckInDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/padding_1x"
+                        android:hint="@string/date_format_hint"
+                        android:padding="@dimen/padding_2x"
+                        android:textColor="@color/color_text"
+                        android:textSize="@dimen/text_size_1x"
+                        app:layout_constraintBottom_toTopOf="@id/firstDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/centerDivider"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvCheckOutDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/event_available"
+                        android:drawablePadding="@dimen/padding_1x"
+                        android:padding="@dimen/padding_2x"
+                        android:text="@string/check_out_date"
+                        android:textColor="@color/color_text"
+                        app:layout_constraintBottom_toTopOf="@id/secondDivider"
+                        app:layout_constraintEnd_toStartOf="@id/centerDivider"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/firstDivider" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/btnCheckOutDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/padding_1x"
+                        android:hint="@string/date_format_hint"
+                        android:padding="@dimen/padding_2x"
+                        android:textColor="@color/color_text"
+                        android:textSize="@dimen/text_size_1x"
+                        app:layout_constraintBottom_toTopOf="@id/secondDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/centerDivider"
+                        app:layout_constraintTop_toBottomOf="@id/firstDivider" />
+
+                    <View
+                        android:id="@+id/secondDivider"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/color_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCheckOutDate" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvAdult"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/person"
+                        android:drawablePadding="@dimen/padding_1x"
+                        android:padding="@dimen/padding_2x"
+                        android:text="@string/adults"
+                        android:textColor="@color/color_text"
+                        app:layout_constraintBottom_toTopOf="@id/tvChildren"
+                        app:layout_constraintEnd_toStartOf="@id/centerDivider"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/secondDivider" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etAdult"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:drawablePadding="@dimen/padding_1x"
+                        android:hint="@string/enter_no_of_adults"
+                        android:inputType="number"
+                        android:padding="@dimen/padding_2x"
+                        android:textColor="@color/color_text"
+                        android:textSize="@dimen/text_size_1x"
+                        app:layout_constraintBottom_toTopOf="@id/thirdDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/centerDivider"
+                        app:layout_constraintTop_toBottomOf="@id/secondDivider" />
+
+                    <View
+                        android:id="@+id/thirdDivider"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/color_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvAdult" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvChildren"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/supervisor_account"
+                        android:drawablePadding="@dimen/padding_1x"
+                        android:padding="@dimen/padding_2x"
+                        android:text="@string/children"
+                        android:textColor="@color/color_text"
+                        app:layout_constraintEnd_toStartOf="@id/centerDivider"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/thirdDivider" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etChildren"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:drawablePadding="@dimen/padding_1x"
+                        android:hint="@string/enter_no_of_kids"
+                        android:inputType="number"
+                        android:padding="@dimen/padding_2x"
+                        android:textColor="@color/color_text"
+                        android:textSize="@dimen/text_size_1x"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/centerDivider"
+                        app:layout_constraintTop_toBottomOf="@id/thirdDivider" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvRecentSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_0x"
+                android:layout_marginTop="@dimen/margin_1x"
+                android:text="@string/recent_search"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_2x"
+                app:layout_constraintBottom_toTopOf="@id/cardRecentSearches"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardEndGuideline" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRecentSearches"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:cardCornerRadius="@dimen/radius_1x"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintBottom_toTopOf="@id/cardRecentSearchEndGuideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvRecentSearch">
+
+                <TextView
+                    android:id="@+id/tvManageHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/padding_1x"
+                    android:padding="@dimen/padding_2x"
+                    android:textColor="@color/color_text"
+                    android:textSize="@dimen/text_size_0x"
+                    android:text="@string/no_search_history"
+                    app:drawableStartCompat="@drawable/manage_history"
+                    tools:hint="03  07 / 2024 - 08 / 07 / 2024 1 adult, 0 children" />
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSearch"
+                style="@style/buttonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_3x"
+                android:padding="@dimen/padding_3x"
+                android:text="@string/search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardRecentSearchEndGuideline" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
+

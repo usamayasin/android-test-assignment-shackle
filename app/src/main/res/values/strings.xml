@@ -1,3 +1,46 @@
 <resources>
     <string name="app_name">ShackleHotelBuddy</string>
+
+    <!-- Text Hints -->
+    <string name="hint_search_photos_text_str">Search photos</string>
+
+    <!-- Screen Titles -->
+    <string name="screen_home_title_str">Home</string>
+    <string name="screen_photo_details_title_str">Photo Details</string>
+
+    <!-- Others -->
+    <string name="label_username">By: %1$s</string>
+    <string name="label_tags_by">Tags: %1$s</string>
+    <string name="message_no_network_connected_str">No network connected</string>
+    <string name="popular_data">Search results for %1$s</string>
+
+    <string name="action_retry_str">Retry</string>
+    <string name="no_data_found">No data found.</string>
+    <string name="timeout">Server time out.</string>
+    <string name="server_is_busy">Server is busy.</string>
+    <string name="no_internet_connection">No internet.</string>
+    <string name="unauthorized">UnAuthorized.</string>
+    <string name="internal_server_error">Internal server error.</string>
+    <string name="bad_request">Bad request.</string>
+    <string name="confirm">confirm.</string>
+    <string name="not_found">Not found.</string>
+    <string name="not_acceptable">Not acceptable.</string>
+    <string name="service_unavailable">Service unavailable.</string>
+    <string name="forbidden">Forbidden.</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="header_text">Select guests,\ndate and time</string>
+    <string name="check_in_date">Check-in date</string>
+    <string name="date_format_hint">DD / MM / YYYY</string>
+    <string name="check_out_date">Check-out date</string>
+    <string name="adults">Adults</string>
+    <string name="children">Children</string>
+    <string name="enter_no_of_adults">Number of Adults</string>
+    <string name="enter_no_of_kids">Number of Kids</string>
+    <string name="recent_search">Recent search</string>
+    <string name="search">Search</string>
+    <string name="no_search_history">No search history</string>
+    <string name="mock_location_name">New York</string>
+    <string name="search_result">Search Result</string>
+
+
 </resources>
